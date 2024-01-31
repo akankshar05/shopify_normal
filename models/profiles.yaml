@@ -23,7 +23,7 @@ models:
     model_type: feature_table_model
     model_spec:
       validity_time: 24h # 1 day
-      cohort: user/all
+      entity_key: user
       features:
         - days_since_last_seen
         - is_churned_7_days
@@ -82,7 +82,7 @@ models:
     model_type: feature_table_model
     model_spec:
       validity_time: 24h # 1 day
-      cohort: session/all
+      entity_key: session
       features:
         - session_end_time
         - session_start_time
@@ -91,7 +91,7 @@ models:
         - anonymous_id
 var_groups:
   - name: user_vars
-    cohort: user/all
+    entity_key: user
     vars:
       - entity_var:
           name: max_timestamp_cart_update
@@ -436,7 +436,7 @@ var_groups:
           from: models/rsItemsPurchasedEver
           description: The list of unique products bought by the user.
   - name: session_vars
-    cohort: session/all
+    entity_key: session
     vars:
       - entity_var:
           name: session_end_time
